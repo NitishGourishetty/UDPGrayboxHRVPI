@@ -1,4 +1,0 @@
-#Mon Nov 14 00:22:22 PST 2022
-base.0=/Users/ruhiyusuf/projects/UDPGrayboxHRVPI/Temp/gradleOut/launcher/build/intermediates/dex/release/mergeDexRelease/classes.dex
-path.0=classes.dex
-renamed.0=classes.dex
