@@ -36,10 +36,10 @@ public class TextEditor : MonoBehaviour
                 //sigmoidHeartRate = Convert.ToDouble(sp.ReadLine());
                 sigmoidHeartRate = rnd.NextDouble();
 
-                Debug.Log(sigmoidHeartRate);
+                // Debug.Log(sigmoidHeartRate);
                 //heartRate = Convert.ToDouble(sp.ReadLine());
                 heartRate = rnd.Next(40, 120);
-                Debug.Log(heartRate);
+                // Debug.Log(heartRate);
                 isHeartRate = false;
 
             }
@@ -48,16 +48,18 @@ public class TextEditor : MonoBehaviour
                 //IBI = int.Parse(sp.ReadLine());
                 sigmoidIBI = rnd.NextDouble();
 
-                Debug.Log(sigmoidIBI);
+                // Debug.Log(sigmoidIBI);
                 //heartRate = Convert.ToDouble(sp.ReadLine());
                 IBI = rnd.Next(600, 1200);
-                Debug.Log("IBI" + IBI);
+                // Debug.Log("IBI" + IBI);
                 isHeartRate = true;
 
             }
 
         }
 
-        myText.text = "heart rate: " + heartRate + "\nsigmoid heart rate: " + sigmoidHeartRate + "\nIBI: " + IBI; 
+        myText.text = "heart rate: " + UDPListener.heartRate;
+        // Debug.Log(HRV_UDP.heartRate);
+        // myText.text = "heart rate: " + heartRate + "\nsigmoid heart rate: " + sigmoidHeartRate + "\nIBI: " + IBI; 
     }
 }
