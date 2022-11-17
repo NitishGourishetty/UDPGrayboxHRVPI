@@ -58,7 +58,7 @@ public class TextEditor : MonoBehaviour
 
         }
 
-        myText.text = "heart rate: " + UDPListener.heartRate;
+        myText.text = "heart rate: " + UDPListener.heartRate + "\nIBI: " + UDPListener.IBI;
         // Debug.Log(HRV_UDP.heartRate);
         // myText.text = "heart rate: " + heartRate + "\nsigmoid heart rate: " + sigmoidHeartRate + "\nIBI: " + IBI; 
     }

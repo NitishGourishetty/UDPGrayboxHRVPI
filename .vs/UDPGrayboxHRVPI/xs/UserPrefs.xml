@@ -1,16 +1,11 @@
 ﻿<Properties StartupConfiguration="{3760DBD4-BA04-8734-179A-F0CF26E1A0E3}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/UDPListener.cs">
-    <Files>
-      <File FileName="Assets/UDPListener.cs" Line="56" Column="6" />
-      <File FileName="Assets/TextEditor.cs" Line="61" Column="51" />
-      <File FileName="Assets/LineControl.cs" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="UDPGrayboxHRVPI" expanded="True">
             <Node name="Assets" expanded="True">
-              <Node name="UDPListener.cs" selected="True" />
+              <Node name="LineControl.cs" selected="True" />
             </Node>
           </Node>
         </State>
@@ -19,7 +14,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="0d2da27e-030b-49b6-8320-724916ecf8cf" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="872eaf20-492f-4b50-ab97-ac3f56d0f72a" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
