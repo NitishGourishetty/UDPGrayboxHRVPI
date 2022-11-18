@@ -18,7 +18,9 @@ public class UDPListener : MonoBehaviour
     private System.AsyncCallback AC;
     byte[] receivedBytes;
     public static double heartRate = 0.0;
+    public static List<double> heartRateList = new List<double>();
     public static int IBI = 0;
+    public static List<int> IBIList = new List<int>();
     System.String udpReceiveString = "";
     string[] udpReceiveArr;
 
@@ -67,6 +69,8 @@ public class UDPListener : MonoBehaviour
             udpReceiveArr = udpReceiveString.Split(',');
             heartRate = Convert.ToDouble(udpReceiveArr[0]);
             IBI = Convert.ToInt32(udpReceiveArr[1]);
+            heartRateList.Add(heartRate);
+            IBIList.Add(IBI);
 
         }
         // heartRate = Convert.ToDouble(udpReceiveString);
