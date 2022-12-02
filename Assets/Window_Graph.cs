@@ -30,7 +30,7 @@ public class Window_Graph : MonoBehaviour
         gameObject.GetComponent<Image>().sprite = circleSprite;
         RectTransform rectTransform = gameObject.GetComponent<RectTransform>();
         rectTransform.anchoredPosition = anchoredPosition;
-        rectTransform.sizeDelta = new Vector2(30, 30); //can be determined based on amt of data
+        rectTransform.sizeDelta = new Vector2(1, 1); //DOT SIZE
         rectTransform.anchorMin = new Vector2(0, 0);
         rectTransform.anchorMax = new Vector2(0, 0);
         return gameObject;
@@ -64,16 +64,20 @@ public class Window_Graph : MonoBehaviour
             //labelX.GetComponent<Text>().text = i.ToString();
 
         }
+        //hard put this
         int seperatorCount = 10;
-        for (int i = 0; i < seperatorCount; i++)
+        for (int i = 0; i <= seperatorCount; i++)
         {
             RectTransform labelX = Instantiate(labelTemplateX);
+            labelX.transform.SetParent(graphContainer, false);
             labelX.SetParent(graphContainer);
             labelX.gameObject.SetActive(true);
             float normalizedValue = i * 1f / seperatorCount;
-            labelX.anchoredPosition = new Vector2(-65f, normalizedValue * graphHeight);
+            labelX.anchoredPosition = new Vector2(-95f, normalizedValue * graphHeight);
             labelX.GetComponent<Text>().text = Mathf.RoundToInt(normalizedValue * yMaximum).ToString();
             labelX.transform.localScale = new Vector3(1, 1, 1);
+            float z = labelX.transform.position.z;
+            Debug.Log(z);
 
         }
 
@@ -83,7 +87,7 @@ public class Window_Graph : MonoBehaviour
     {
         GameObject gameObject = new GameObject("dotConnection", typeof(Image));
         gameObject.transform.SetParent(graphContainer, false);
-        gameObject.GetComponent<Image>().color = new Color(1, 1, 1, 0.5f);
+        gameObject.GetComponent<Image>().color = new Color(1, 1f, 1f, 0.5f);
         RectTransform rectTransform = gameObject.GetComponent<RectTransform>();
         Vector2 dir = (dotPositionB - dotPositionA).normalized;
         float distance = Vector2.Distance(dotPositionA, dotPositionB);
