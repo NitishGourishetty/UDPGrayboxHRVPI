@@ -39,15 +39,16 @@ public class Window_Graph : MonoBehaviour
     private void showGraph(List<int> valueList)
     {
         float graphHeight = graphContainer.sizeDelta.y;
-        Debug.Log(graphHeight);
         //float graphHeight = 1000; //figure out dynamics
         float yMaximum = 140f; //highest HR
-        float xSize = (graphContainer.sizeDelta.x - 100) / (float) valueList.Count; //learn to make dynamic based on size of list and dimension chosen
-        //float xSize = 50f;
+        //float xSize = ((graphContainer.sizeDelta.x) / (float) valueList.Count) - graphContainer.sizeDelta.x; //learn to make dynamic based on size of list and dimension chosen
+        float xSize = ((float) graphContainer.sizeDelta.x / (valueList.Count -1));
+        Debug.Log(graphContainer.sizeDelta.x + "x");
+        Debug.Log(graphContainer.sizeDelta.y + "y");
         GameObject lastCircleGameObject = null;
         for (int i = 0; i < valueList.Count; i++)
         {
-           float xPosition = xSize + i * xSize; //will be in two lists instead...
+           float xPosition = i * xSize; //will be in two lists instead...
            float yPosition = (valueList[i] / yMaximum) * graphHeight; //normalize Value
            GameObject circleGameObject =  CreateCircle(new Vector2(xPosition, yPosition));
            if(lastCircleGameObject != null)
@@ -76,9 +77,6 @@ public class Window_Graph : MonoBehaviour
             labelX.anchoredPosition = new Vector2(-95f, normalizedValue * graphHeight);
             labelX.GetComponent<Text>().text = Mathf.RoundToInt(normalizedValue * yMaximum).ToString();
             labelX.transform.localScale = new Vector3(1, 1, 1);
-            float z = labelX.transform.position.z;
-            Debug.Log(z);
-
         }
 
     }
@@ -91,7 +89,6 @@ public class Window_Graph : MonoBehaviour
         RectTransform rectTransform = gameObject.GetComponent<RectTransform>();
         Vector2 dir = (dotPositionB - dotPositionA).normalized;
         float distance = Vector2.Distance(dotPositionA, dotPositionB);
-        Debug.Log(distance);
         rectTransform.anchorMin = new Vector2(0, 0);
         rectTransform.anchorMax = new Vector2(0, 0);
         rectTransform.sizeDelta = new Vector2(distance, 6f);
