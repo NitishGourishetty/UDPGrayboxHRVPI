@@ -10,17 +10,14 @@ public class Window_Graph : MonoBehaviour
     [SerializeField] private Sprite circleSprite;
     private RectTransform graphContainer;
     private RectTransform labelTemplateX;
+    public float x;
+    public TMPro.TMP_Text myText;
 
 
     private void Awake()
     {
         graphContainer = transform.Find("graphContainer").GetComponent<RectTransform>();
         labelTemplateX = graphContainer.Find("XTemplate").GetComponent<RectTransform>();
-
-
-        List<int> valueList = new List<int>() {50, 70, 68, 102, 100, 82, 100, 130, 120, 118, 117, 85, 78 };
-        showGraph(valueList);
-        //CreateCircle(new Vector2(299, 299));
     }
 
     private GameObject CreateCircle(Vector2 anchoredPosition)
@@ -56,14 +53,6 @@ public class Window_Graph : MonoBehaviour
               CreateDotConnection(lastCircleGameObject.GetComponent<RectTransform>().anchoredPosition, circleGameObject.GetComponent<RectTransform>().anchoredPosition);
            }
            lastCircleGameObject = circleGameObject;
-
-            //can do with time if needed
-            //RectTransform labelX = Instantiate(labelTemplateX);
-            //labelX.SetParent(graphContainer);
-            //labelX.gameObject.SetActive(true);
-            //labelX.anchoredPosition = new Vector2(xPosition, -20f);
-            //labelX.GetComponent<Text>().text = i.ToString();
-
         }
         //hard put this
         int seperatorCount = 10;
@@ -109,6 +98,10 @@ public class Window_Graph : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(x > 12) {
+            List<int> valueList = new List<int>() { 50, 70, 68, 102, 100, 82, 100, 130, 120, 118, 117, 85, 78 };
+            showGraph(valueList);
+            myText.text = "Your RMSDD Scores\nBiome 1: " + 0 + "\nBiome 2: " + 0 + "\nBiome 3: " + 0 + "\nBiome 4: " + 0;
+        }
     }
 }
